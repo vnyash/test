@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Value Sender</title>
+</head>
+
+<body>
+    <h1>Enter Two Values</h1>
+    <!-- <form action=sendValues() > -->
+    <label for="value1">Value 1:</label>
+    <input type="text" id="value1" name="value1"><br><br>
+
+    <label for="value2">Value 2:</label>
+    <input type="text" id="value2" name="value2"><br><br>
+
+    <button onclick="sendValues()">Send Values</button>
+    <!-- </form> -->
+    <script>;
+        function sendValues() {
+            const value1 = document.getElementById('value1').value;
+            const value2 = document.getElementById('value2').value;
+
+            const form = new FormData();
+            form.append("room_id", value1);
+            form.append("display_name", value2);
+
+
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Access-Control-Allow-Origin': "*",
+                    'Access-Control-Allow-Headers': "X-Requestsed-With",
+                    accept: 'application/json',
+                }
+            };
+
+            options.body = form;
+
+            fetch('http://192.168.0.110:5000/test', options)
+                .then(response => response.json())
+                .then(response => console.log(response))
+                .catch(err => console.error(err))
+
+            // Store values in localStorage
+            localStorage.setItem('value1', value1);
+            localStorage.setItem('value2', value2);
+
+            // Navigate to receiver.html
+            window.location.href = 'chatroom.html';
+        }
+    </script>
+</body>
+
+</html>
