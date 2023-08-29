@@ -37,7 +37,7 @@
 
             options.body = form;
 
-            fetch('http://jerry.pythonanywhere.com/test', options)
+            fetch('https://jerry.pythonanywhere.com/test', options)
                 .then(response => response.json())
                 .then(response => console.log(response))
                 .catch(err => console.error(err))
