@@ -8,10 +8,10 @@
 <body>
     <h1>Enter Two Values</h1>
     <!-- <form action=sendValues() > -->
-    <label for="value1">Value 1:</label>
+    <label for="value1">room id :</label>
     <input type="text" id="value1" name="value1"><br><br>
 
-    <label for="value2">Value 2:</label>
+    <label for="value2">display name :</label>
     <input type="text" id="value2" name="value2"><br><br>
 
     <button onclick="sendValues()">Send Values</button>
@@ -37,7 +37,7 @@
 
             options.body = form;
 
-            fetch('http://192.168.0.110:5000/test', options)
+            fetch('http://jerry.pythonanywhere.com/test', options)
                 .then(response => response.json())
                 .then(response => console.log(response))
                 .catch(err => console.error(err))
