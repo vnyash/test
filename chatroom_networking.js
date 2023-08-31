@@ -4,7 +4,7 @@ var _peer_list = {};
 // socketio 
 var protocol = window.location.protocol;
 // var socket = io("http://localhost:5000", { autoConnect: false, cors_allowed_origins: "*" });
-var socket = io('https://jerry.pythonanywhere.com/', {autoConnect: false});
+var socket = io('https://jerry.pythonanywhere.com/', {autoConnect: false, cors_allowed_origins: "*" }});
 
 document.addEventListener("DOMContentLoaded", (event) => {
     startCamera();
