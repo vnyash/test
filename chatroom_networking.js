@@ -3,8 +3,9 @@ var _peer_list = {};
 
 // socketio 
 var protocol = window.location.protocol;
-// var socket = io("http://localhost:5000", { autoConnect: false, cors_allowed_origins: "*" });
-var socket = io('https://jerry.pythonanywhere.com/', {autoConnect: false, cors_allowed_origins: "*",'Access-Control-Allow-Credentials': true });
+var socket = io("https://34.136.44.96:5000", { autoConnect: false });
+// var socket = io("http://localhost:5000");
+// var socket = io(protocol + '//' + document.domain + ':' + location.port, {autoConnect: false});
 
 document.addEventListener("DOMContentLoaded", (event) => {
     startCamera();
@@ -38,6 +39,7 @@ function startCamera() {
 
 
 socket.on("connect", () => {
+    var myRoomID = localStorage.getItem('room_name')
     console.log("socket connected....", myRoomID);
     socket.emit("join-room", { "room_id": myRoomID });
 });
